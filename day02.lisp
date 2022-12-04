@@ -65,5 +65,7 @@
         sum (score-2 r)))
 
 (let ((rs (input)))
-  (print (total-score-1 rs))   ; => 14297
-  (print (total-score-2 rs)))  ; => 10498
+  (print (total-score-1 rs))
+  (print (total-score-2 rs)))
+;; => 14297
+;; => 10498

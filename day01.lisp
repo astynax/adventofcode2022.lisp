@@ -23,5 +23,7 @@
     0 3)))
 
 (let ((xs (input)))
-  (print (solution1 xs))   ; => 70720
-  (print (solution2 xs)))  ; => 207148
+  (print (solution1 xs))
+  (print (solution2 xs)))
+;; => 70720
+;; => 207148

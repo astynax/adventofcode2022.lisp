@@ -1,6 +1,3 @@
-;; 8202
-;; 2864
-
 (defun input ()
   (loop for line in (uiop:read-file-lines "day03.input")
         collect (concatenate 'list line)))
