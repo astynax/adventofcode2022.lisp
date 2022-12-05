@@ -1,0 +1,7 @@
+(defun split-on (test a-list)
+  (do ((chunk nil (cons (car cursor) chunk))
+       (cursor a-list (cdr cursor)))
+      ((or (null cursor)
+           (funcall test (car cursor)))
+       (list (reverse chunk)
+             cursor))))
