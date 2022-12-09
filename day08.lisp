@@ -1,13 +1,7 @@
 (defclass field ()
-  ((width :type integer
-          :initarg width
-          :reader field-width)
-   (height :type integer
-           :initarg height
-           :reader field-height)
-   (trees :type array
-          :initarg trees
-          :reader trees)))
+  ((width :type integer :initarg width)
+   (height :type integer :initarg height)
+   (trees :type array :initarg trees)))
 
 (defmacro field/defun (name args &body body)
   `(defun ,name (a-field ,@args)
