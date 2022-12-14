@@ -53,19 +53,20 @@
                    (t (setf (gethash pos cave) t)
                       (return-from outer t))))))
 
-(defun solution-1 (inp)
+(defun go-to-the-void (pos cave)
+  (declare (ignore pos cave))
+  nil)
+
+(defun stay-onto-the-floor (pos cave)
+  (setf (gethash pos cave) t))
+
+(defun solve-using (floor-handler inp)
   (destructuring-bind (cave . height) inp
-    (loop while (drop-one #'(lambda (p c) nil) height cave)
+    (loop while (drop-one floor-handler height cave)
           count t)))
 
-(defun solution-2 (inp)
-  (destructuring-bind (cave . height) inp
-    (loop while (drop-one #'(lambda (p c) (setf (gethash p c) t))
-                          height cave)
-          count t)))
-
-(solution-1 (build-cave (input)))
+(solve-using #'go-to-the-void (build-cave (input)))
 ;; => 1199
 
-(solution-2 (build-cave (input)))
+(solve-using #'stay-onto-the-floor (build-cave (input)))
 ;; => 23925
