@@ -40,11 +40,6 @@
                       (<= 0 yy max-y))
               collect (cons (cons xx yy) (aref cells xx yy))))))
 
-(defun levi (pos1 pos2)
-  (destructuring-bind (x1 . y1) pos1
-    (destructuring-bind (x2 . y2) pos2
-      (+ (abs (- x2 x1)) (abs (- y2 y1))))))
-
 (defun dijkstra (fork weight start)
   (loop with distances = (make-hash-table :test #'equal)
         do (setf (gethash start distances) 0)

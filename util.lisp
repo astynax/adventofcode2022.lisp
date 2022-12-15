@@ -17,3 +17,8 @@
                    (setf (aref result i) to)
                    (return))
         finally (return result)))
+
+(defun manhattan (pos1 pos2)
+  (destructuring-bind (x1 . y1) pos1
+    (destructuring-bind (x2 . y2) pos2
+      (+ (abs (- x2 x1)) (abs (- y2 y1))))))
