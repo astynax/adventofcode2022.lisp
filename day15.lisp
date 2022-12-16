@@ -6,8 +6,10 @@
 (defun decode-line (line)
   (destructuring-bind (sx sy bx by)
       (parse line
-             (skip "Sensor at x=")              #'num (skip ", y=") #'num
-             (skip ": closest beacon is at x=") #'num (skip ", y=") #'num)
+             (p/skip (p/string "Sensor at x=")) p/num
+             (p/skip (p/string ", y=")) p/num
+             (p/skip (p/string ": closest beacon is at x=")) p/num
+             (p/skip (p/string ", y=")) p/num)
     (cons (cons sx sy)
           (cons bx by))))
 
